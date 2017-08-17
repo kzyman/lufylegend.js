@@ -6327,6 +6327,7 @@ var LLoadManage = (function () {
 					s.loader = new LURLLoader();
 					s.loader.parent = s;
 					s.loader.name = d.name;
+					s.loader._loadIndex = s.loadIndex;
 					s.loader.addEventListener(LEvent.PROGRESS, s._loadProgress);
 					s.loader.addEventListener(LEvent.ERROR, s._loadError);
 					s.loader.addEventListener(LEvent.COMPLETE, s._loadComplete);
@@ -6335,6 +6336,7 @@ var LLoadManage = (function () {
 					s.loader = new LSound();
 					s.loader.parent = s;
 					s.loader.name = d.name;
+					s.loader._loadIndex = s.loadIndex;
 					s.loader.addEventListener(LEvent.PROGRESS, s._loadProgress);
 					s.loader.addEventListener(LEvent.ERROR, s._loadError);
 					s.loader.addEventListener(LEvent.COMPLETE, s._loadComplete);
@@ -6343,6 +6345,7 @@ var LLoadManage = (function () {
 					s.loader = new LFontLoader();
 					s.loader.parent = s;
 					s.loader.name = d.name;
+					s.loader._loadIndex = s.loadIndex;
 					s.loader.addEventListener(LEvent.ERROR, s._loadError);
 					s.loader.addEventListener(LEvent.COMPLETE, s._loadComplete);
 					s.loader.load(d.path, d.name);
@@ -6350,12 +6353,12 @@ var LLoadManage = (function () {
 					s.loader = new LLoader();
 					s.loader.parent = s;
 					s.loader.name = d.name;
+					s.loader._loadIndex = s.loadIndex;
 					s.loader.addEventListener(LEvent.PROGRESS, s._loadProgress);
 					s.loader.addEventListener(LEvent.ERROR, s._loadError);
 					s.loader.addEventListener(LEvent.COMPLETE, s._loadComplete);
 					s.loader.load(s.url(d.path), LLoader.TYPE_BITMAPDATE, d.useXHR);
 				}
-				s.loader._loadIndex = s.loadIndex;
 			}
 			s.loadIndex++;
 			s.loadStart();
